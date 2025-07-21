@@ -162,7 +162,7 @@ else
 }
 
 sonuc = yas > 18 ? "Reşitsiniz" : "Reşit değilsiniz";
-
+ 
 
 
 // Girilen 4 sayının ortalamasını veren bir program
