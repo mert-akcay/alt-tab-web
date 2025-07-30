@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "_Layout1";
+
+    string ad = "Mert";
+    string soyad = "Akcay";
+
+    string[] isimler = { "Ali", "Veli", "Kemal"};
+
+}
+
+@section Linkler {
+    <div>
+        <a href="/Home/Index">Ana Sayfa</a>
+    </div>
+}
+
+@foreach(string isim in isimler)
+{
+    <h1>@isim</h1>
+}

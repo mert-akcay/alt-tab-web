@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "donguler-oop", "..\donguler
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oop", "..\oop\oop.csproj", "{93A54552-AD16-4493-8374-463B729F180E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_MVC_Giris", "..\01_MVC_Giris\01_MVC_Giris.csproj", "{306D53A2-54F5-458A-A003-D774A728F5AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{93A54552-AD16-4493-8374-463B729F180E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93A54552-AD16-4493-8374-463B729F180E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93A54552-AD16-4493-8374-463B729F180E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{306D53A2-54F5-458A-A003-D774A728F5AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{306D53A2-54F5-458A-A003-D774A728F5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{306D53A2-54F5-458A-A003-D774A728F5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{306D53A2-54F5-458A-A003-D774A728F5AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
