@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oop", "..\oop\oop.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_MVC_Giris", "..\01_MVC_Giris\01_MVC_Giris.csproj", "{306D53A2-54F5-458A-A003-D774A728F5AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_MVC_Example", "..\02_MVC_Example\02_MVC_Example.csproj", "{928E2D25-474C-4C6E-BA5D-4E1438750BCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{306D53A2-54F5-458A-A003-D774A728F5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{306D53A2-54F5-458A-A003-D774A728F5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{306D53A2-54F5-458A-A003-D774A728F5AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{928E2D25-474C-4C6E-BA5D-4E1438750BCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{928E2D25-474C-4C6E-BA5D-4E1438750BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{928E2D25-474C-4C6E-BA5D-4E1438750BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{928E2D25-474C-4C6E-BA5D-4E1438750BCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

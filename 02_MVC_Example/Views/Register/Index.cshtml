@@ -1,0 +1,19 @@
+﻿@using _02_MVC_Example.Models
+@model User
+
+<form class="form-box" asp-action="Index">
+    <label>Ad:</label>
+    <input asp-for="Ad" type="text" />
+
+    <label>Soyad:</label>
+    <input asp-for="Soyad" type="text" />
+
+    <label>E-posta:</label>
+    <input asp-for="Email" type="text" />
+
+    <label>Doğum Tarihi:</label>
+    <input asp-for="DogumTarihi" type="date" />
+
+    @* <input type="submit"/> *@
+    <button type="submit">Kayıt Ol</button>
+</form>
