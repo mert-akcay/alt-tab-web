@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_MVC_Giris", "..\01_MVC_G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_MVC_Example", "..\02_MVC_Example\02_MVC_Example.csproj", "{928E2D25-474C-4C6E-BA5D-4E1438750BCD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_MVC_Example", "..\03_MVC_Example\03_MVC_Example.csproj", "{9EAC0640-E4A1-4735-97F3-763B4E2552A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{928E2D25-474C-4C6E-BA5D-4E1438750BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{928E2D25-474C-4C6E-BA5D-4E1438750BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{928E2D25-474C-4C6E-BA5D-4E1438750BCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EAC0640-E4A1-4735-97F3-763B4E2552A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EAC0640-E4A1-4735-97F3-763B4E2552A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EAC0640-E4A1-4735-97F3-763B4E2552A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EAC0640-E4A1-4735-97F3-763B4E2552A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

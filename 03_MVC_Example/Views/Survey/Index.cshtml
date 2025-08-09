@@ -1,0 +1,27 @@
+﻿@model List<_03_MVC_Example.Models.SurveyOption>
+@{
+    ViewBag.Title = "Mini Anket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    @if (TempData["Tesekkur"] != null)
+    {
+        <div class="alert-box">@TempData["Tesekkur"]</div>
+    }
+
+    <form asp-action="Index" method="post" class="survey-form">
+        <p class="question">Hangi programlama dilini tercih edersiniz?</p>
+        @foreach (var secenek in Model)
+        {
+            <label class="option-label">
+                <input type="radio" name="secilenSecenek" value="@secenek.Secenek" required />
+                @secenek.Secenek
+            </label>
+        }
+
+        <button type="submit">Gönder</button>
+    </form>
+</div>
+
+<partial name="_ResultsPartial" model="Model" />

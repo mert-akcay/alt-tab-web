@@ -1,0 +1,14 @@
+﻿@model List<_03_MVC_Example.Models.SurveyOption>
+
+<div class="results-box">
+    <h3>Oy Sonuçları</h3>
+    <div class="results-grid">
+        @foreach (var item in Model)
+        {
+            <div class="result-card">
+                <strong>@item.Secenek</strong>
+                <span>@item.OySayisi oy</span>
+            </div>
+        }
+    </div>
+</div>
