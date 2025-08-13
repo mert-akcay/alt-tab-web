@@ -1,0 +1,228 @@
+-------------------------------------------------
+-- SELECT
+-- Veritabanından veri çekmek için kullanılır.
+-- Kolonları veya tüm satırları getirebilirsin.
+-- * : Tüm kolonları getirir (performans için önerilmez).
+-------------------------------------------------
+
+-- Tüm personelleri getirir.
+SELECT * FROM Personeller;
+
+-- Tüm satışları getirir.
+SELECT * FROM Satislar;
+
+-- Tüm ürünleri getirir.
+SELECT * FROM Urunler;
+
+-- Sadece ürün adı ve birim fiyatını getirir.
+SELECT UrunAdi, BirimFiyati FROM Urunler;
+
+
+-------------------------------------------------
+-- WHERE
+-- Koşul belirterek veri filtrelemek için kullanılır.
+-- Karşılaştırma Operatörleri: =, !=, >, >=, <, <=
+-- Mantıksal Operatörler: AND, OR, NOT
+-- LIKE: Metin içinde arama yapar.
+-- IN: Belirtilen listedeki değerlerle eşleşen kayıtları getirir.
+-------------------------------------------------
+
+-- Birim fiyatı 25 veya daha fazla olan ürünleri getirir.
+SELECT * FROM Urunler
+WHERE BirimFiyati >= 25;
+
+-- Ürün adında 'Chef' geçen kayıtları getirir.
+SELECT * FROM Urunler
+WHERE UrunAdi LIKE '%Chef%';
+
+-- Birim fiyatı 20'den büyük veya yeni satış adedi 0'dan fazla olan ürünleri getirir.
+SELECT * FROM Urunler
+WHERE BirimFiyati > 20 OR YeniSatis > 0;
+
+-- Ülkesi Brazil veya Germany olan müşterileri getirir.
+SELECT * FROM Musteriler
+WHERE Ulke = 'Brazil' OR Ulke = 'Germany';
+
+-- Ülkesi Germany veya Brazil olan müşterileri getirir (IN kullanarak).
+SELECT * FROM Musteriler
+WHERE Ulke IN ('Germany', 'Brazil');
+
+-- Şirket adında 'Al' ile başlayan veya içinde 'e' geçen müşteriler.
+SELECT * FROM Musteriler
+WHERE SirketAdi LIKE 'Al%' OR SirketAdi LIKE '%e%';
+
+-- Şirket adında 'a' geçen ve unvanında 'sa' geçen müşteriler.
+SELECT * FROM Musteriler
+WHERE SirketAdi LIKE '%a%' AND MusteriUnvani LIKE '%sa%';
+
+-- Ürün adında 'c' geçen ve birim fiyatı 15'ten büyük olan ürünler.
+SELECT * FROM Urunler
+WHERE UrunAdi LIKE '%c%' AND BirimFiyati > 15;
+
+-- Birim fiyatı 22 olmayan ürünleri getirir.
+SELECT * FROM Urunler 
+WHERE BirimFiyati != 22;
+
+
+-------------------------------------------------
+-- ORDER BY
+-- Sıralama işlemi yapar.
+-- ASC: Küçükten büyüğe (varsayılan)
+-- DESC: Büyükten küçüğe
+-------------------------------------------------
+
+-- Ürünleri birim fiyatına göre büyükten küçüğe sırala.
+SELECT * FROM Urunler
+ORDER BY BirimFiyati DESC;
+
+-- Birim fiyatı 25'ten büyük ürünleri tedarikçi ID'sine göre tersten sırala.
+SELECT * FROM Urunler
+WHERE BirimFiyati > 25
+ORDER BY TedarikciID DESC;
+
+
+-------------------------------------------------
+-- TOP
+-- Sadece belirli sayıda kayıt getirir.
+-------------------------------------------------
+
+-- Kategori ID'si 3'ten büyük olan ürünlerden en son eklenen 10 tanesini getirir.
+SELECT TOP 10 * FROM Urunler
+WHERE KategoriID > 3
+ORDER BY UrunID DESC;
+
+-- En pahalı nakliye ücretine sahip 5 satışı getirir.
+SELECT TOP 5 * FROM Satislar
+ORDER BY NakliyeUcreti DESC;
+
+
+-------------------------------------------------
+-- INSERT
+-- Tabloya yeni kayıt ekler.
+-------------------------------------------------
+
+-- Personeller tablosuna yeni kayıt ekler.
+INSERT INTO Personeller(SoyAdi,Adi,Adres,Unvan)
+VALUES ('BARIŞ','TALHA','GÜNGÖREN','YAZILIM');
+
+-- Posta kodu eklenmiş yeni bir personel ekler.
+INSERT INTO Personeller(SoyAdi,Adi,Adres,PostaKodu)
+VALUES ('BİLDİREN', 'CAN', 'SAKARYA', '34165');
+
+
+-------------------------------------------------
+-- UPDATE
+-- Mevcut kayıtları günceller.
+-- DİKKAT: WHERE kullanılmazsa tüm kayıtlar güncellenir!
+-------------------------------------------------
+
+-- Adı CAN olan personelleri getir.
+SELECT * FROM Personeller
+WHERE Adi = 'CAN';
+
+-- Adı CAN olan personelin adını MUSTAFA olarak değiştirir.
+UPDATE Personeller
+SET Adi = 'MUSTAFA'
+WHERE Adi = 'CAN';
+
+-- Unvan ekini DR. olarak günceller (TÜM KAYITLAR için).
+UPDATE Personeller
+SET UnvanEki = 'DR.';
+
+-- Ülkesi USA olan personellerin unvan ekini MS olarak değiştirir.
+UPDATE Personeller
+SET UnvanEki = 'MS'
+WHERE Ulke = 'USA';
+
+
+-------------------------------------------------
+-- DELETE
+-- Kayıtları siler.
+-- DİKKAT: WHERE kullanılmazsa tüm kayıtlar silinir!
+-------------------------------------------------
+
+-- Adı MUSTAFA olan personelleri siler.
+DELETE FROM Personeller
+WHERE Adi = 'MUSTAFA';
+
+-- Unvanı YAZILIM olan personelleri siler.
+DELETE FROM Personeller
+WHERE Unvan = 'YAZILIM';
+
+
+-------------------------------------------------
+-- FONKSİYONLAR
+-- COUNT(X) = Satır sayısını döndürür.
+-- SUM(X) = Toplam değeri döndürür.
+-- AVG(X) = Ortalama değeri döndürür.
+-- MAX(X) = En büyük değeri döndürür.
+-- MIN(X) = En küçük değeri döndürür.
+-------------------------------------------------
+
+-- Ürün sayısını verir.
+SELECT COUNT(*) FROM Urunler;
+
+-- Ürün adlarını getirir (kolon adı değiştirilmiş).
+SELECT UrunAdi AS 'Ürünlerin Adı' FROM Urunler;
+
+-- Birim fiyatların toplamını verir.
+SELECT SUM(BirimFiyati) AS 'Birim Fiyatı Toplam' FROM Urunler;
+
+-- En küçük birim fiyatı verir.
+SELECT MIN(BirimFiyati) AS 'En Küçük Birim Fiyatı' FROM Urunler;
+
+-- Birim fiyatları küçükten büyüğe sıralar.
+SELECT BirimFiyati FROM Urunler 
+ORDER BY BirimFiyati ASC;
+
+
+-------------------------------------------------
+-- GROUP BY
+-- Verileri gruplandırarak toplu sonuçlar üretir.
+-------------------------------------------------
+
+-- Satışları sevk ülkesine göre gruplar ve ülke başına satış sayısını verir.
+SELECT SevkUlkesi, COUNT(*) AS 'Kişi Sayısı' 
+FROM Satislar
+GROUP BY SevkUlkesi;
+
+-- Ürünleri kategoriye göre gruplar ve ortalama fiyatı verir.
+SELECT KategoriID, AVG(BirimFiyati) AS 'Ort. Fiyat' 
+FROM Urunler
+GROUP BY KategoriID;
+
+-- Her kategorideki en yüksek fiyatlı ürünü getirir.
+SELECT KategoriID, MAX(BirimFiyati) AS 'En Yüksek Fiyat' 
+FROM Urunler
+GROUP BY KategoriID;
+
+
+-------------------------------------------------
+-- JOIN
+-- Birden fazla tabloyu ilişkilendirerek veri çeker.
+-- INNER JOIN = İki tabloda eşleşen kayıtlar
+-- LEFT JOIN = Sol tablodaki tüm kayıtlar + eşleşen sağ tablo kayıtları
+-- RIGHT JOIN = Sağ tablodaki tüm kayıtlar + eşleşen sol tablo kayıtları
+-- FULL JOIN = Her iki tablodaki tüm kayıtlar
+-------------------------------------------------
+
+-- Ürünler ile kategorileri INNER JOIN yaparak getirir.
+SELECT * FROM Urunler
+INNER JOIN Kategoriler ON Urunler.KategoriID = Kategoriler.KategoriID;
+
+-- Ürünler ile kategorileri LEFT JOIN yaparak getirir.
+SELECT * FROM Urunler
+LEFT JOIN Kategoriler ON Urunler.KategoriID = Kategoriler.KategoriID;
+
+-- Ürünler ile kategorileri RIGHT JOIN yaparak getirir.
+SELECT * FROM Urunler
+RIGHT JOIN Kategoriler ON Urunler.KategoriID = Kategoriler.KategoriID;
+
+-- Ürünler ile kategorileri FULL JOIN yaparak getirir.
+SELECT * FROM Urunler
+FULL JOIN Kategoriler ON Urunler.KategoriID = Kategoriler.KategoriID;
+
+-- Müşteriler ile satışları LEFT JOIN yapar, sadece 'FISSA' müşterisini getirir.
+SELECT * FROM Musteriler 
+LEFT JOIN Satislar ON Musteriler.MusteriID = Satislar.MusteriID
+WHERE Musteriler.MusteriAdi = 'FISSA';
