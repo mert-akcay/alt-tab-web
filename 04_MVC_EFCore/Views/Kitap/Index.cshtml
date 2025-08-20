@@ -1,0 +1,38 @@
+﻿@using _04_MVC_EFCore.Core.Entities
+@model List<Kitap>
+
+@{
+    ViewData["Title"] = "Tüm Kitaplar";
+}
+
+<h1>Tüm Kitaplar</h1>
+<hr />
+
+<p>
+    <a asp-action="Create">Yeni Kitap Ekle</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ad</th>
+            <th>Fiyat</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model){
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Ad</td>
+                <td>@item.Fiyat</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Düzenle</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detaylar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

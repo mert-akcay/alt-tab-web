@@ -1,0 +1,32 @@
+﻿@using _04_MVC_EFCore.Core.Entities
+@model Kitap
+
+@{
+    ViewData["Title"] = "Yeni Kitap Ekle";
+}
+
+<h1>Yeni Kitap Ekle </h1>
+<hr/>
+
+<div>
+    <form asp-action="Create">
+        <div class="ad">
+            <label asp-for="Ad"></label>
+            <input asp-for="Ad">
+            <span asp-validation-for="Ad"></span>
+        </div>
+        <div class="ad">
+            <label asp-for="Fiyat"></label>
+            <input asp-for="Fiyat">
+            <span asp-validation-for="Fiyat"></span>
+        </div>
+        <br/>
+        <div>
+            <input type="submit" value="Kaydet"/>
+        </div>
+    </form>
+</div>
+           
+<div>
+    <a asp-action="Index">Geri Dön</a>
+</div>
