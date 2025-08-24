@@ -1,0 +1,27 @@
+﻿@using MVC_App_1.Core.Entities
+@model Product
+
+<div class="container">
+    <div class="card">
+        <h2>Ürün Detayları</h2>
+        <hr />
+        <div>
+            <dl>
+                <dt>İsim</dt>
+                <dd>@Model.Name</dd>
+            </dl>
+            <dl>
+                <dt>Fiyat</dt>
+                <dd>@Model.Price</dd>
+            </dl>
+            <dl>
+                <dt>Açıklama</dt>
+                <dd>@Model.Description</dd>
+            </dl>
+        </div>
+        <div class="action-buttons">
+            <a class="btn">Düzenle</a>
+            <a asp-action="Index" class="btn">Listeye geri dön</a>
+        </div>
+    </div>
+</div>

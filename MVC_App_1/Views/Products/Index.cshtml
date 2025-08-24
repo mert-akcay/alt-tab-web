@@ -1,0 +1,37 @@
+﻿@using MVC_App_1.Core.Entities
+@model List<Product>
+
+<div class="container">
+    <div class="card">
+        <div>
+            <h2>Ürün Listesi</h2>
+            <a class="btn" asp-action="Create">Yeni Ürün Ekle</a>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Ad</th>
+                    <th>Fiyat</th>
+                    <th>Açıklama</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var product in Model)
+                {
+                    <tr>
+                        <td>@product.Name</td>
+                        <td>@product.Price</td>
+                        <td>@product.Description</td>
+                        <td>
+                            <a class="btn">Düzenle</a>
+                            <a class="btn" asp-action="Details" asp-route-id="@product.Id">Detaylar</a>
+                            <a class="btn">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
