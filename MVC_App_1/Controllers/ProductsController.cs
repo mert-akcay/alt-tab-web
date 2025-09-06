@@ -39,12 +39,20 @@ namespace MVC_App_1.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(Product product)
         {
-            context.Add(product);
-            context.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                context.Products.Add(product);
+                context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+
+            // If validation fails, return same view with errors
+            return View(product);
         }
+
 
         [HttpGet]
         public IActionResult Details(int id)
@@ -61,12 +69,21 @@ namespace MVC_App_1.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(Product product)
         {
+            if (!ModelState.IsValid)
+            {
+                // Validation failed → show form again with errors
+                return View(product);
+            }
+
             context.Products.Update(product);
             context.SaveChanges();
-            return RedirectToAction("Index");
+
+            return RedirectToAction(nameof(Index));
         }
+
 
         //[HttpGet]
         //public IActionResult Delete(int id)

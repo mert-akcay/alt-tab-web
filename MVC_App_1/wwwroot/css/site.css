@@ -75,7 +75,25 @@ body {
     border-radius: 8px;
 }
 
-    .form-control:focus {
-        outline: none;
-        border-color: #5d5d81;
+.form-control:focus {
+     outline: none;
+     border-color: #5d5d81;
+}
+
+.text-danger {
+    color: red;
+    font-size: 0.9em;
+}
+
+.container {
+    margin: 20px;
+}
+
+.card {
+    padding: 15px;
+    border: 1px solid #ccc;
+}
+
+    .card div {
+        margin-bottom: 10px;
     }
