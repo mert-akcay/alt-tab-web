@@ -1,4 +1,4 @@
-body{
+body {
     background-color: #eef1f6
 }
 
@@ -24,14 +24,14 @@ body{
     text-decoration: none;
     border-radius: 8px;
     cursor: pointer;
-    background-color: #5d5d81;
+    background-color: red;
     color: #fff;
     transition: background-color 0.3s ease;
 }
 
-.btn:hover{
-    background-color: #4b4b6c;
-}
+    .btn:hover {
+        background-color: #4b4b6c;
+    }
 
 .table {
     width: 100%;
@@ -42,19 +42,19 @@ body{
     overflow: hidden;
 }
 
-.table th,td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
+    .table th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
 
-.table th {
-    background-color: #5d5d81;
-    color: #fff;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 13px;
-}
+    .table th {
+        background-color: red;
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 13px;
+    }
 
 .form-group {
     margin-bottom: 20px;
@@ -75,7 +75,7 @@ body{
     border-radius: 8px;
 }
 
-.form-control:focus {
-    outline: none;
-    border-color: #5d5d81;
-}
+    .form-control:focus {
+        outline: none;
+        border-color: #5d5d81;
+    }

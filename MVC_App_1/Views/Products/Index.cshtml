@@ -1,11 +1,28 @@
 ﻿@using MVC_App_1.Core.Entities
-@model List<Product>
+@model (List<Product> products, string name, decimal? minPrice, decimal? maxPrice)
 
 <div class="container">
     <div class="card">
         <div>
             <h2>Ürün Listesi</h2>
             <a class="btn" asp-action="Create">Yeni Ürün Ekle</a>
+            <form asp-action="Index" method="get">
+                <div class="form-group">
+                    <label asp-for="@Model.name" class="form-label">Arama:</label>
+                    <input name="name" asp-for="@Model.name" class="form-control" placeholder="Lütfen isim giriniz..." />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.minPrice" class="form-label">Minimum Fiyat:</label>
+                    <input name="minPrice" asp-for="@Model.minPrice" class="form-control" placeholder="Lütfen fiyat giriniz..." />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.maxPrice" class="form-label">Maximum Fiyat:</label>
+                    <input name="maxPrice" asp-for="@Model.maxPrice" class="form-control" placeholder="Lütfen fiyat giriniz..." />
+                </div>
+                <div>
+                    <button type="submit" class="btn">Ara</button>
+                </div>
+            </form>
         </div>
 
         <table class="table">
@@ -18,16 +35,19 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach(var product in Model)
+                @foreach (var product in Model.products)
                 {
                     <tr>
                         <td>@product.Name</td>
                         <td>@product.Price</td>
                         <td>@product.Description</td>
                         <td>
-                            <a class="btn">Düzenle</a>
+                            <a class="btn" asp-action="Edit" asp-route-id="@product.Id">Düzenle</a>
                             <a class="btn" asp-action="Details" asp-route-id="@product.Id">Detaylar</a>
-                            <a class="btn">Sil</a>
+                            <form asp-action="Delete" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="@product.Id" />
+                                <button type="submit" class="btn">Sil</button>
+                            </form>
                         </td>
                     </tr>
                 }

@@ -1,0 +1,26 @@
+﻿@using MVC_App_1.Core.Entities
+@model Product
+
+<div class="container">
+    <div class="card">
+        <h2>Bu ürünü silmek istediğinize emin misiniz?</h2>
+        <form asp-action="Delete">
+            <div class="form-group">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" disabled/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" class="form-control" disabled/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="form-label"></label>
+                <input asp-for="Description" class="form-control" disabled/>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn" value="Evet" />
+                <a asp-action="Index" class="btn">Hayır</a>
+            </div>
+        </form>
+    </div>
+</div>
