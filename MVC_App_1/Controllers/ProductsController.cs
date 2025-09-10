@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVC_App_1.Core.Contexts;
 using MVC_App_1.Core.Entities;
+using MVC_App_1.Enums;
 
 namespace MVC_App_1.Controllers
 {
     public class ProductsController(ApplicationDbContext context) : Controller
     {
         [HttpGet]
-        public IActionResult Index(string name, decimal? minPrice, decimal? maxPrice)
+        public IActionResult Index(string name, decimal? minPrice, decimal? maxPrice, CategoryEnum category)
         {
             var query = context.Products.AsQueryable();
 
@@ -24,11 +25,16 @@ namespace MVC_App_1.Controllers
             if (maxPrice.HasValue)
             {
                 query = query.Where(product => product.Price <= maxPrice.Value);
+            }         
+            
+            if (category != 0)
+            {
+                query = query.Where(product => product.Category == category);
             }
 
             var products = query.ToList();
 
-            return View((products, name, minPrice, maxPrice));
+            return View((products, name, minPrice, maxPrice, category));
         }
 
 
@@ -41,9 +47,14 @@ namespace MVC_App_1.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            context.Add(product);
-            context.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                context.Add(product);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            
+            return View(product);
         }
 
         [HttpGet]

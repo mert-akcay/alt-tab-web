@@ -1,0 +1,40 @@
+﻿@using MVC_App_2.Core.Entities
+@using MVC_App_2.ViewModels
+@model BookCreateViewModel
+
+<div class="container">
+	<div class="card">
+		<h2>Yeni Kitap ekle</h2>
+		<form asp-action="Create">
+
+			<div asp-validation-summary="ModelOnly"></div>
+
+			<div class="form-group">
+				<label asp-for="Book.Name" class="form-label"></label>
+				<input asp-for="Book.Name" class="form-control" />
+				<span asp-validation-for="Book.Name"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Book.PublishYear" class="form-label"></label>
+				<input asp-for="Book.PublishYear" class="form-control" />
+				<span asp-validation-for="Book.PublishYear"></span>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="Book.Author" class="form-label">Yazar</label>
+				<select asp-for="Book.AuthorId" class="form-control">
+					@foreach(var author in Model.Authors)
+					{
+						<option value="@author.AuthorId">@author.Name</option>
+					}
+				</select>
+				<span asp-validation-for="Book.PublishYear"></span>
+			</div>
+			
+			<div class="form-group">
+				<input type="submit" class="btn" value="Kaydet" />
+				<a asp-action="Index" class="btn">Listeye geri dön</a>
+			</div>
+		</form>
+	</div>
+</div>
