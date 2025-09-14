@@ -19,6 +19,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_MVC_EFCore", "..\04_MVC_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_App_1", "..\MVC_App_1\MVC_App_1.csproj", "{4EA81BD8-4602-4FF1-A1C1-3CAD95A90CF2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Github", "Github", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		commands.txt = commands.txt
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_App_2", "..\MVC_App_2\MVC_App_2.csproj", "{387F79C5-8A3F-495C-8E4F-978F9D1A0AED}"
 EndProject
 Global

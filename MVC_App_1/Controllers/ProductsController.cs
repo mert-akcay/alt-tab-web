@@ -57,7 +57,7 @@ namespace MVC_App_1.Controllers
             return View(product);
         }
 
-        [HttpGet]
+        [HttpGet()]
         public IActionResult Details(int id)
         {
             var product = context.Products.Find(id);

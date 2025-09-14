@@ -1,0 +1,25 @@
+PROJE ÝLK OLUÞTURULURKEN
+	git init //projeyi localde oluþturmamýzý saðladý
+	git remote add "url" //local repoya remote repoyu baðlamamýzý saðladý
+	git branch -M main //branch oluþturmamýzý saðladý
+HER DEÐÝÞÝKLÝKTE
+	git add . //localimizdeki deðiþiklikleri commit edilecekler listesine ekledi.
+	git commit -m "commit message" //deðiþiklikleri commit etti (local repoya göndermemizi saðladý)
+	git push origin main //local commitleri remote repoya göndermemizi saðladý.
+	
+main
+yeni bir branch oluþturuyorum. mainden oluþturuyorum. butongelistirmesi
+butongelistirmesi branchinde deðiþiklikleri yapýyoruz. (buton ekledim , git add . , git commit -m "Buton eklendi", git push)
+pull request (pr) oluþturulur. (butongelistirmesi branchimi main branchine göndermek istiyorum)
+
+	git branch yenibranch //branch oluþturma
+	git checkout yenibranch //yeni oluþturduðumuz branche geçtik
+	git add . 
+	git commit -m "message"
+	git push origin yenibranch
+	
+	pull request oluþturduk yenibranch -> main
+	merge
+	
+	git pull //remote repodaki deðiþiklikleri local repoya çeker
+	
